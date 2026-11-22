@@ -45,7 +45,8 @@ constraints, the backends (`ols`, `nls_lmfit`, EViews, and R through `r_lm` and 
 the fit of the variable itself when an equation is estimated in growth rates, and how an
 equation tagged `<estimator=...>` is estimated while the model is being built. It stays
 with the syntax, demonstrated on small synthetic data where the right answer is known in
-advance; a complete estimation on real data is the last chapter.
+advance; a complete estimation on real data is the
+[Estimation example](estimation%20example.ipynb) chapter.
 
 **[Variables at a fixed period](fixed%20periods.ipynb)** covers `X(2015)` -- the value of `X`
 in one particular period, as in an index with 2015 = 100 -- and `X('2015Q1')` for quarterly
@@ -59,11 +60,19 @@ carries the original, preprocessed, normalized and fitted versions of an equatio
 **[Add factors](add%20factors.ipynb)** looks in detail at what the `<add>` tag actually
 generates, and how the resulting add factor can be used to control an equation.
 
-**[A worked example](worked%20example.ipynb)** puts it all together on real data: national
+**[Estimation example](estimation%20example.ipynb)** puts it all together on real data: national
 accounts for Nepal, behavioural equations estimated one at a time and then while the model
 is built, add factors that make the model reproduce history and the forecast that comes
 with the data, and an experiment run against the resulting baseline. It is written by
 Andrew Burns and Ib Hansen.
+
+**[Differential equations](differential%20equations.ipynb)** is about models written in
+continuous time, $\frac{dS}{dt} = f(S, x)$: an epidemic, a projectile, planets. The derivatives
+are tagged `<ODE>`, and `modelode` generates the equations of a Runge–Kutta method (Euler, Heun,
+RK4), one DataFrame row per time step. It covers what is generated, the choice of method and
+time step, documented models with lists, where `NO{list}` means all the other elements, and
+stiff systems solved with implicit methods and Newton. The feature is experimental: check the
+results more carefully than usual.
 
 ## Prerequisites
 
