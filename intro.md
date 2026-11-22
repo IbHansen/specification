@@ -16,6 +16,11 @@ optionally extended with **add factors**. `Makemodel` performs the expansion,
 `normal` performs the normalization, and the `%%Makemymodel` cell magic lets you do the
 whole thing in a notebook cell.
 
+Where the DSL comes from and how it becomes executable code is described in the
+architecture supplement, *ModelFlow - Architecture and History*, under
+[The ModelFlow equation DSL](https://ibhansen.github.io/general/modelflow-specification-to-code/#the-modelflow-equation-dsl)
+and [Higher-level model specification DSL](https://ibhansen.github.io/general/modelflow-specification-to-code/#higher-level-model-specification-dsl).
+
 ## What is in this book
 
 **[Model specification](model%20specification.ipynb)** introduces the DSL and the
@@ -36,11 +41,11 @@ starts and ends, what a comment is, and a function which translates each equatio
 
 **[Estimation](estimation.ipynb)** covers the behavioural equations, whose coefficients
 come from data rather than from accounting: the equation syntax for coefficients and
-constraints, the `ols` and `nls_lmfit` backends, and how an equation tagged
-`<estimator=...>` is estimated while the model is being built. It stays with the syntax,
-demonstrated on small synthetic data where the right answer is known in advance; a
-complete estimation on real data is a supplement of its own, *ModelFlow - Estimation, a
-worked example*.
+constraints, the backends (`ols`, `nls_lmfit`, EViews, and R through `r_lm` and `r_nls`),
+the fit of the variable itself when an equation is estimated in growth rates, and how an
+equation tagged `<estimator=...>` is estimated while the model is being built. It stays
+with the syntax, demonstrated on small synthetic data where the right answer is known in
+advance; a complete estimation on real data is the last chapter.
 
 **[Variables at a fixed period](fixed%20periods.ipynb)** covers `X(2015)` -- the value of `X`
 in one particular period, as in an index with 2015 = 100 -- and `X('2015Q1')` for quarterly
@@ -54,6 +59,12 @@ carries the original, preprocessed, normalized and fitted versions of an equatio
 **[Add factors](add%20factors.ipynb)** looks in detail at what the `<add>` tag actually
 generates, and how the resulting add factor can be used to control an equation.
 
+**[A worked example](worked%20example.ipynb)** puts it all together on real data: national
+accounts for Nepal, behavioural equations estimated one at a time and then while the model
+is built, add factors that make the model reproduce history and the forecast that comes
+with the data, and an experiment run against the resulting baseline. It is written by
+Andrew Burns and Ib Hansen.
+
 ## Prerequisites
 
 The notebooks import from the ModelFlow source, mainly:
@@ -65,7 +76,8 @@ from modelnormalize import normal
 ```
 
 Estimation needs no import of its own: the method is named in the equation's tag,
-as `<est=ols>` or `<est=nls_lmfit>`.
+as `<est=ols>` or `<est=nls_lmfit>`. The R backends need R itself, installed from
+[CRAN](https://cran.r-project.org); see the [Estimation](estimation.ipynb) chapter.
 
 Each notebook can be read on its own, but the chapters are ordered so that later ones
 build on the vocabulary of the earlier ones.

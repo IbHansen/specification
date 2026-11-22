@@ -5,7 +5,8 @@ project:
   description: >-
     Supplement on specifying models in ModelFlow: the specification language,
     the %%Makemymodel Jupyter magic, estimation, equation normalization and
-    add factors.
+    add factors, and a worked example that builds, estimates and simulates a
+    small model for Nepal.
   exports:
     - format: pdf
       template: latex/mfbook-template
@@ -19,6 +20,7 @@ project:
         - fixed periods.ipynb
         - normal.ipynb
         - add factors.ipynb
+        - worked example.ipynb
     - format: tex
       template: latex/mfbook-template
       output: exports/tex/specification.tex
@@ -40,6 +42,8 @@ project:
       title: Normalization
     - file: add factors.ipynb
       title: Add factors
+    - file: worked example.ipynb
+      title: A worked example
 site:
   template: book-theme
   options:
